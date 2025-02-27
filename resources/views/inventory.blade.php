@@ -9,27 +9,29 @@
 <body>
     <div class="container mt-5">
         <h2 class="text-center">Inventory</h2>
+
+        <!-- ✅ Add Student Button -->
+        <a href="{{ url('/students/create') }}" class="btn btn-success mb-3">Add Student</a>
+
         <table class="table table-bordered table-striped">
             <thead class="table-dark">
                 <tr>
                     <th>Student ID</th>
                     <th>Name</th>
-                    <th>course</th>
+                    <th>Course</th>
                 </tr>
             </thead>
             <tbody>
+                @foreach ($students as $student)
                 <tr>
-                    <td>2202196</td>
-                    <td>van</td>
-                    <td>computer science</td>
+                    <td>{{ $student->student_id }}</td>
+                    <td>{{ $student->name }}</td>
+                    <td>{{ $student->course }}</td>
                 </tr>
-                <tr>
-                    <td>2002414</td>
-                    <td>yuri</td>
-                    <td>computer science</td>
-                </tr>
+                @endforeach
             </tbody>
         </table>
+        
         <a href="{{ url('/logout') }}" class="btn btn-danger">Logout</a>
     </div>
 </body>
